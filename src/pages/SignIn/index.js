@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { FiLogIn } from 'react-icons/fi';
+
 import heroesLogo from '../../assets/logo.svg';
 import heroesBanner from '../../assets/heroes.png';
 
@@ -15,7 +17,9 @@ export default function SignIn() {
           <h2>Log on</h2>
           <input placeholder="Your ID"/>
           <button type="submit">Sign In</button>
-          <a href="/signup">I'm not registered</a>
+          <a href="/signup">
+            <FiLogIn size={16} color="#e02041" /> I'm not registered
+          </a>
         </form>
       </section>
 
