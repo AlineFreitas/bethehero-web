@@ -1,4 +1,7 @@
 import React from 'react';
+import { FiPower, FiTrash2 } from 'react-icons/fi';
+
+import heroesLogo from '../../assets/logo.svg';
 
 import './profile.css';
 
@@ -6,13 +9,13 @@ export default function Profile(){
   return(
     <div className="profile-container">
       <header>
-        <img alt="" />
+        <img src={heroesLogo} alt="Be The Hero Logo" />
         <span>Welcome, Lambeijinhos!</span>
 
-        <a href="/incidents/new">Add new Incident</a>
+        <a className="button" href="/incidents/new">Add new Incident</a>
 
         <button typer="button">
-          Sign Out Placeholder
+          <FiPower size={18} color="#e02041" /> 
         </button>
       </header>
 
@@ -27,7 +30,9 @@ export default function Profile(){
 
           <strong>Value label</strong>
           <p>$###,##</p>
-          <button type="button">DELETE </button>
+          <button type="button">
+            <FiTrash2 size={20} color="#a8a8b3"/>
+          </button>
         </li>
         <li>
           <strong>Title label</strong>
@@ -38,7 +43,9 @@ export default function Profile(){
 
           <strong>Value label</strong>
           <p>$###,##</p>
-          <button type="button">DELETE </button>
+          <button type="button">
+            <FiTrash2 size={20} color="#a8a8b3"/>
+          </button>
         </li>
         <li>
           <strong>Title label</strong>
@@ -49,7 +56,9 @@ export default function Profile(){
 
           <strong>Value label</strong>
           <p>$###,##</p>
-          <button type="button">DELETE </button>
+          <button type="button">
+            <FiTrash2 size={20} color="#a8a8b3"/>
+          </button>
         </li>
         <li>
           <strong>Title label</strong>
@@ -60,7 +69,9 @@ export default function Profile(){
 
           <strong>Value label</strong>
           <p>$###,##</p>
-          <button type="button">DELETE </button>
+          <button type="button">
+            <FiTrash2 size={20} color="#a8a8b3"/>
+          </button>
         </li>
         <li>
           <strong>Title label</strong>
@@ -71,7 +82,9 @@ export default function Profile(){
 
           <strong>Value label</strong>
           <p>$###,##</p>
-          <button type="button">DELETE </button>
+          <button type="button">
+            <FiTrash2 size={20} color="#a8a8b3"/>
+          </button>
         </li>
         <li>
           <strong>Title label</strong>
@@ -82,7 +95,9 @@ export default function Profile(){
 
           <strong>Value label</strong>
           <p>$###,##</p>
-          <button type="button">DELETE </button>
+          <button type="button">
+            <FiTrash2 size={20} color="#a8a8b3"/>
+          </button>
         </li>
       </ul>
     </div>
