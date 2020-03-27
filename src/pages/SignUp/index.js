@@ -13,26 +13,28 @@ export default function SignUp() {
     <div className="signup-container">
       <div className="content">
         <section>
-          <img alt="Be The Hero Logo" />
+          <img src={heroesLogo} alt="Be The Hero Logo" />
 
           <h2>Sign Up</h2>
-
           <p>
             Sign up, then sign in to the plattaform and help people find your NGO's cases.
           </p>
-          <a href="/">
-            Return to Sign In
-          </a>
+          <Link className="back-icon-link" to="/">
+            <FiArrowLeft size={16} color="#e02041" /> Return to Sign In
+          </Link>
         </section>
 
         <form>
           <input placeholder="NGO's name" />
           <input type="email" placeholder="E-mail" />
           <input placeholder="Whatsapp" />
-          <input placeholder="City" />
-          <input placeholder="UF" />
 
-          <button>
+          <div className="inline-input-group">
+            <input placeholder="City" />
+            <input placeholder="UF" style={{ width: 80 }} />
+          </div>
+
+          <button className="button">
             Sign Up
           </button>
         </form>
