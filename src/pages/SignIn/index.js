@@ -16,7 +16,7 @@ export default function SignIn() {
         <form>
           <h2>Log on</h2>
           <input placeholder="Your ID"/>
-          <button type="submit">Sign In</button>
+          <button className="button" type="submit">Sign In</button>
           <a href="/signup">
             <FiLogIn size={16} color="#e02041" /> I'm not registered
           </a>
