@@ -9,7 +9,7 @@ import './sign_in.css';
 
 export default function SignIn() {
   return(
-    <div className="signup-container">
+    <div className="signin-container">
       <section className="form">
         <img src={heroesLogo} alt="Be The Hero Logo" />
 
