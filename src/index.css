@@ -51,7 +51,7 @@ form input {
   filter: brightness(90%);
 }
 
-.back-icon-link a {
+.back-icon-link {
   display: flex;
   align-items: center;
   margin-top: 40px;
@@ -62,10 +62,10 @@ form input {
   transition: opacity 0.2s;
 }
 
-.back-icon-link a:hover {
+.back-icon-link:hover {
   opacity: 0.8;
 }
 
-.back-icon-link a svg {
+.back-icon-link svg {
   margin-right: 8px;
 }
