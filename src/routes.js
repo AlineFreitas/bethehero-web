@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Profile from './pages/Profile';
 
 export default function Routes() {
   return (
@@ -10,6 +11,7 @@ export default function Routes() {
         <Switch>
           <Route exact path="/" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/profile" component={Profile} />
         </Switch>
     </BrowserRouter>
   );
