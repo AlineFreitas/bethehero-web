@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api'
 
@@ -8,6 +9,8 @@ import heroesLogo from '../../assets/logo.svg';
 import './profile.css';
 
 export default function Profile(){
+  const history = useHistory();
+  
   const ongName = localStorage.getItem('ngoName');
   const [incidents, setIncidents] = useState([]);
 
@@ -39,6 +42,11 @@ export default function Profile(){
     }
   }
 
+  function handleSignOut(){
+    localStorage.clear();
+    history.push('/');
+  }
+
   return(
     <div className="profile-container">
       <header>
@@ -47,7 +55,7 @@ export default function Profile(){
 
         <a className="button" href="/incidents/new">Add new Incident</a>
 
-        <button typer="button">
+        <button onClick={handleSignOut} type="button">
           <FiPower size={18} color="#e02041" /> 
         </button>
       </header>
