@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -16,6 +16,8 @@ export default function NewIncident(){
 
   const ngoID = localStorage.getItem('ngoID');
 
+  const history = useHistory();
+
   async function handleCreateIncident(event){
     event.preventDefault();
 
@@ -31,6 +33,9 @@ export default function NewIncident(){
           Authorization: ngoID,
         }
       });
+
+      history.push('/profile');
+
     } catch(error) {
       alert('Something went wrong');
     }
@@ -62,7 +67,6 @@ export default function NewIncident(){
             onChange={ (event) => setDescription(event.target.value)}
             placeholder="Description"
           />
-
           <input
             value={value}
             onChange={ (event) => setValue(event.target.value)}
