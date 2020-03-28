@@ -29,6 +29,11 @@ export default function Profile(){
           Authorization: localStorage.getItem('ngoID'),
         }
       });
+
+      setIncidents(incidents.filter( incident =>
+        incident.id !== id
+      ));
+
     } catch (error) {
       alert('Sorry, something went wrong and we were not able to delete this. Please, try again.')
     }
