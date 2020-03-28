@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api'
@@ -12,6 +12,7 @@ import './sign_in.css';
 export default function SignIn() {
 
   const [id, setID] = useState('');
+  const history = useHistory();
 
   async function handleSignIn(event){
 
@@ -22,6 +23,8 @@ export default function SignIn() {
 
       localStorage.setItem('ngoID', id);
       localStorage.setItem('ngoName', response.data.name);
+
+      history.push('profile');
 
     } catch(error) {
       alert('Login failed. Try again');
