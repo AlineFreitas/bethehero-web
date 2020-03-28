@@ -77,7 +77,7 @@ export default function NewIncident(){
             Register
           </button>
 
-          <button className="button">
+          <button className="button" onClick={() => history.goBack()}>
             Cancel
           </button>
         </form>
