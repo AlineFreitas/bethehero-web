@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi';
+
+import api from '../../services/api';
 
 import heroesLogo from '../../assets/logo.svg';
 
@@ -8,6 +10,32 @@ import './new_incident.css'
 
 
 export default function NewIncident(){
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [value, setValue] = useState('');
+
+  const ngoID = localStorage.getItem('ngoID');
+
+  async function handleCreateIncident(event){
+    event.preventDefault();
+
+    const data = {
+      title,
+      description,
+      value
+    }
+
+    try {
+      await api.post('/incidents', data, {
+        headers: {
+          Authorization: ngoID,
+        }
+      });
+    } catch(error) {
+      alert('Something went wrong');
+    }
+  }
+
   return (
     <div className="new-incident-container">
       <div className="content">
@@ -23,13 +51,30 @@ export default function NewIncident(){
           </Link>
         </section>
 
-        <form>
-          <input placeholder="Incident title" />
-          <textarea placeholder="Description" />
-          <input placeholder="Amount (in USD)" />
+        <form onSubmit={handleCreateIncident}>
+          <input
+            value={title}
+            onChange={ (event) => setTitle(event.target.value)}
+            placeholder="Incident title"
+          />
+          <textarea
+            value={description}
+            onChange={ (event) => setDescription(event.target.value)}
+            placeholder="Description"
+          />
+
+          <input
+            value={value}
+            onChange={ (event) => setValue(event.target.value)}
+            placeholder="Amount (in BRL)"
+          />
 
           <button className="button">
             Register
+          </button>
+
+          <button className="button">
+            Cancel
           </button>
         </form>
       </div>
