@@ -1,13 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+
+import api from '../../services/api';
 
 import heroesLogo from '../../assets/logo.svg';
 
 import './sign_up.css';
 
 export default function SignUp() {
-  console.log("welcome");
+  
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp_number, setWhatsapp] = useState('');
+  const [city, setCity] = useState('');
+  const [uf, setUF] = useState('');
+
+  async function handleSignUp(event){
+    event.preventDefault();
+
+    const data = {
+      name,
+      email,
+      whatsapp_number,
+      city,
+      uf
+    }
+
+    try {
+      const response = await api.post('/ngos', data);
+    
+      alert(`Your access ID: ${response.data.id}`);
+    } catch (error) {
+      alert('Something went wrong. Try again, please');
+    }
+  }
 
   return(
     <div className="signup-container">
@@ -24,14 +51,36 @@ export default function SignUp() {
           </Link>
         </section>
 
-        <form>
-          <input placeholder="NGO's name" />
-          <input type="email" placeholder="E-mail" />
-          <input placeholder="Whatsapp" />
+        <form onSubmit={handleSignUp}>
+          <input 
+            value={name}
+            onChange= { event => setName(event.target.value)}
+            placeholder="NGO's name"
+          />
+          <input
+            value={email}
+            onChange= { event => setEmail(event.target.value)}
+            type="email"
+            placeholder="E-mail"
+          />
+          <input
+            vaule={whatsapp_number}
+            onChange= { event => setWhatsapp(event.target.value)}
+            placeholder="Whatsapp"
+          />
 
           <div className="inline-input-group">
-            <input placeholder="City" />
-            <input placeholder="UF" style={{ width: 80 }} />
+            <input
+              value={city}
+              onChange= { event => setCity(event.target.value)}
+              placeholder="City"
+            />
+            <input
+              value={uf}
+              onChange= { event => setUF(event.target.value)}
+              placeholder="UF"
+              style={{ width: 80 }}
+            />
           </div>
 
           <button className="button">
