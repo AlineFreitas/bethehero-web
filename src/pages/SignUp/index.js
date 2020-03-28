@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -16,6 +16,8 @@ export default function SignUp() {
   const [city, setCity] = useState('');
   const [uf, setUF] = useState('');
 
+  const history = useHistory();
+
   async function handleSignUp(event){
     event.preventDefault();
 
@@ -31,6 +33,8 @@ export default function SignUp() {
       const response = await api.post('/ngos', data);
     
       alert(`Your access ID: ${response.data.id}`);
+      history.push('/');
+      
     } catch (error) {
       alert('Something went wrong. Try again, please');
     }
