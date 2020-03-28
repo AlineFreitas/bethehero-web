@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api'
 
@@ -53,7 +53,9 @@ export default function Profile(){
         <img src={heroesLogo} alt="Be The Hero Logo" />
         <span>Welcome, {ongName}!</span>
 
-        <a className="button" href="/incidents/new">Add new Incident</a>
+        <Link className="button" to="/incidents/new">
+          Add new Incident
+        </Link>
 
         <button onClick={handleSignOut} type="button">
           <FiPower size={18} color="#e02041" /> 
