@@ -22,6 +22,18 @@ export default function Profile(){
     });
   }, []);
 
+  async function handleDeleteIncident(id){
+    try {
+      api.delete(`/incidents/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem('ngoID'),
+        }
+      });
+    } catch (error) {
+      alert('Sorry, something went wrong and we were not able to delete this. Please, try again.')
+    }
+  }
+
   return(
     <div className="profile-container">
       <header>
@@ -52,7 +64,7 @@ export default function Profile(){
                 { style: 'currency', currency: 'BRL'}).format(incident.value)}
               </p>
 
-              <button type="button">
+              <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
                 <FiTrash2 size={20} color="#a8a8b3"/>
               </button>
             </li>
